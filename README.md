@@ -127,4 +127,7 @@ docs/                   screen preview + the two PDFs
 
 ## License
 
-Code is the author's; the bundled Shizuku jars are Apache-2.0 (see [`libs/NOTICE.md`](libs/NOTICE.md)).
+**MIT** — see [LICENSE](LICENSE). Use it, fork it, ship it; attribution is appreciated.
+
+The Shizuku jars bundled in `libs/` are Apache-2.0 and keep that license
+(see [`libs/NOTICE.md`](libs/NOTICE.md)).
