@@ -1,5 +1,8 @@
 # schedule.u
 
+[![build](https://github.com/grdcreate/schedule.u/actions/workflows/build.yml/badge.svg)](https://github.com/grdcreate/schedule.u/actions/workflows/build.yml)
+[![license: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-FF2D6F.svg)](#license)
+
 **A tiny Android scheduler that really switches your phone — at the times you choose, every day,
 without you lifting a finger.** It does not remind you. It does the thing.
 
@@ -69,6 +72,32 @@ switches the whole app (and its notifications) to 24-hour.
 * A run missed in the last 30 minutes is executed late and says so, instead of vanishing.
 * Nothing fails silently: skipped, unknown, blocked and "needs a permission" runs are all logged.
 
+## Continuous integration
+
+[`.github/workflows/build.yml`](.github/workflows/build.yml) runs on every push to `main`, on pull
+requests, on version tags, and on demand (*Actions ▸ build ▸ Run workflow*):
+
+1. JDK 17 + Android SDK platform 34 / build-tools 34.0.0
+2. optionally restores a release keystore from the `KEYSTORE_JKS_BASE64` secret
+3. `./build.sh` — aapt2 → javac → d8 → zipalign → apksigner
+4. `./tests/run.sh` — the 32 logic tests on the real classes
+5. verifies the package: badging, **v1/v2/v3 signatures**, `zipalign -c 4`, zip integrity, and that
+   `classes.dex` / `classes2.dex` / `classes3.dex` sit at the APK root (the exact bug that once made
+   Android reject the app as an invalid package)
+6. uploads `scheduleu-CI.apk` + its SHA-256 as a build artifact
+7. on a `v*` tag it also creates a **GitHub Release** with the APK attached
+
+**Signing in CI.** Without a secret, `build.sh` mints a throwaway key for that run — fine for testing,
+but each run's APK has a different signature, so it will not upgrade over an installed copy (uninstall
+first). To make CI produce builds signed with the same key as `dist/`:
+
+```bash
+base64 -w0 keystore.jks        # copy the output
+```
+then add it as repository secret **`KEYSTORE_JKS_BASE64`** (Settings ▸ Secrets and variables ▸
+Actions). The keystore's store/key password is the one `build.sh` expects (`controlscheduler`); the
+file itself stays out of the repo either way.
+
 ## Build from source
 
 ```bash
@@ -89,6 +118,7 @@ toolchain that `fetch-toolchain.sh` downloads into `.cache/toolchain/` (which is
 ## Repository layout
 
 ```
+.github/workflows/      CI: build, test, verify, publish the APK (and release on v* tags)
 AndroidManifest.xml     package com.controlscheduler.app, 12 permissions, target API 34
 src/com/controlscheduler/app/
   MainActivity          home: next-run hero, countdown, readiness card, schedule list
@@ -127,7 +157,14 @@ docs/                   screen preview + the two PDFs
 
 ## License
 
-**MIT** — see [LICENSE](LICENSE). Use it, fork it, ship it; attribution is appreciated.
+Dual-licensed — use it under **either** license, at your option:
+
+* **MIT** — see [LICENSE](LICENSE)
+* **Apache-2.0** — see [LICENSE-APACHE](LICENSE-APACHE)
+
+Apache-2.0 adds an explicit patent grant, which is why it is handy to have alongside MIT
+(the `MIT OR Apache-2.0` arrangement used by many Rust projects). Contributions are accepted under
+the same dual terms.
 
 The Shizuku jars bundled in `libs/` are Apache-2.0 and keep that license
 (see [`libs/NOTICE.md`](libs/NOTICE.md)).
