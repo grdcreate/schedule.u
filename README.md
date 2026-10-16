@@ -74,29 +74,55 @@ switches the whole app (and its notifications) to 24-hour.
 
 ## Continuous integration
 
-[`.github/workflows/build.yml`](.github/workflows/build.yml) runs on every push to `main`, on pull
-requests, on version tags, and on demand (*Actions ▸ build ▸ Run workflow*):
+`.github/workflows/build.yml` is deliberately tiny — it just runs [`ci.sh`](ci.sh) on a fresh
+GitHub runner (push, pull request, tag, or manual *Actions ▸ build ▸ Run workflow*):
 
-1. JDK 17 + Android SDK platform 34 / build-tools 34.0.0
-2. optionally restores a release keystore from the `KEYSTORE_JKS_BASE64` secret
+```yaml
+name: build
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: write
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEYSTORE_JKS_BASE64: ${{ secrets.KEYSTORE_JKS_BASE64 }}
+        run: bash ci.sh
+```
+
+`ci.sh` is the whole pipeline, and it is the same script you can run locally:
+
+1. fetches JDK 17 + Android SDK platform 34 / build-tools 34 via `fetch-toolchain.sh` (cached in
+   `.cache/`, git-ignored)
+2. restores a release keystore if the `KEYSTORE_JKS_BASE64` secret is set
 3. `./build.sh` — aapt2 → javac → d8 → zipalign → apksigner
 4. `./tests/run.sh` — the 32 logic tests on the real classes
 5. verifies the package: badging, **v1/v2/v3 signatures**, `zipalign -c 4`, zip integrity, and that
    `classes.dex` / `classes2.dex` / `classes3.dex` sit at the APK root (the exact bug that once made
    Android reject the app as an invalid package)
-6. uploads `scheduleu-CI.apk` + its SHA-256 as a build artifact
-7. on a `v*` tag it also creates a **GitHub Release** with the APK attached
+6. writes a run summary with the APK size, SHA-256 and manifest line
+7. **publishes**: every push to `main` refreshes a rolling pre-release with a stable URL —
 
-**Signing in CI.** Without a secret, `build.sh` mints a throwaway key for that run — fine for testing,
-but each run's APK has a different signature, so it will not upgrade over an installed copy (uninstall
-first). To make CI produce builds signed with the same key as `dist/`:
+   ```
+   https://github.com/grdcreate/schedule.u/releases/download/ci-latest/scheduleu-CI.apk
+   ```
+
+   and a `v*` tag creates a proper release with generated notes and the APK attached.
+
+**Signing in CI.** Without the secret, `build.sh` mints a throwaway key for that run — fine for
+testing, but each run's APK has a different signature, so it will not upgrade over an installed copy
+(uninstall first). To make CI produce builds signed like `dist/`:
 
 ```bash
 base64 -w0 keystore.jks        # copy the output
 ```
+
 then add it as repository secret **`KEYSTORE_JKS_BASE64`** (Settings ▸ Secrets and variables ▸
-Actions). The keystore's store/key password is the one `build.sh` expects (`controlscheduler`); the
-file itself stays out of the repo either way.
+Actions). The keystore password is the one `build.sh` expects (`controlscheduler`); the file itself
+stays out of the repo either way.
 
 ## Build from source
 
@@ -143,6 +169,8 @@ docs/                   screen preview + the two PDFs
 
 ## Changelog
 
+* **CI** — `ci.sh` (build → test → verify → publish) plus a 14-line workflow; every push to `main`
+  refreshes `releases/download/ci-latest/scheduleu-CI.apk`, tags cut real releases.
 * **2.5** — audit pass: consent no longer cuts internet instantly; ringer steps report the Do Not
   Disturb requirement; clock/timezone changes re-arm alarms; skipped/unknown runs show as "needs
   attention"; new **Self-test**.
