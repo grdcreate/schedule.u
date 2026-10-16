@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <LinearLayout
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:background="@drawable/hero_circle"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/ic_shield" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:letterSpacing="0.2"
+        android:text="SCHEDULE.U"
+        android:textColor="@color/text3"
+        android:textSize="9.5sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:letterSpacing="-0.03"
+        android:text="internet off,"
+        android:textColor="@color/text"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="on schedule."
+        android:textColor="@color/accent"
+        android:textSize="28sp"
+        android:textStyle="italic"
+        android:typeface="serif" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Android needs your one-time permission for the app to act as a local VPN. Nothing leaves your phone \u2014 the tunnel simply drops every packet, so mobile data and Wi-Fi are really offline until a schedule turns internet back on."
+        android:textColor="@color/text2"
+        android:textSize="12.5sp" />
+
+    <TextView
+        android:id="@+id/btn_consent"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/btn_primary"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:letterSpacing="0.12"
+        android:text="ALLOW AND ARM"
+        android:textColor="#FFFFFF"
+        android:textSize="11.5sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btn_later"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_ghost"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:letterSpacing="0.12"
+        android:text="NOT NOW"
+        android:textColor="@color/text2"
+        android:textSize="11.5sp"
+        android:textStyle="bold" />
+</LinearLayout>

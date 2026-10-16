@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>schedule.u — UI preview</title>
+<style>
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .32; } }
+  @keyframes sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .card { animation: rise .42s cubic-bezier(.2,.8,.3,1) both; }
+  .card.d1 { animation-delay: .05s } .card.d2 { animation-delay: .13s } .card.d3 { animation-delay: .21s }
+  .row { transition: background .18s ease, transform .18s ease; }
+  .row:hover { background: #101014; transform: translateX(2px); }
+  .armed { animation: pulse 2.4s ease-in-out infinite; }
+  .hero { animation: rise .5s cubic-bezier(.2,.8,.3,1) both; }
+  .railfill { animation: sweep .9s cubic-bezier(.2,.8,.3,1) both; transform-origin: top; }
+  .fab { transition: transform .14s ease; }
+  .fab:hover { transform: scale(1.06); }
+</style>
+</head>
+<body style="margin:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#F5F5F7;padding:34px 16px 70px;">
+
+<div style="max-width:1240px;margin:0 auto;">
+  <div style="text-align:center;margin-bottom:30px;">
+    <div style="display:inline-block;padding:6px 14px;border:1px solid #FF2D6F;color:#FF2D6F;font-size:11px;letter-spacing:.26em;font-weight:700;">SCHEDULE.U &nbsp;2.5</div>
+    <h1 style="margin:18px 0 6px;font-size:30px;font-weight:700;letter-spacing:-.7px;">your phone, <span style="color:#FF2D6F;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;">on your clock.</span></h1>
+    <p style="margin:0;color:#8A8A93;font-size:13.5px;">Home (with the ready-made night + morning pair) · stack builder · setup · history</p>
+  </div>
+
+  <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;align-items:flex-start;">
+
+    <!-- ============ HOME ============ -->
+    <div class="card d1" style="width:336px;border:1px solid #1E1E24;background:#0A0A0C;">
+      <div style="padding:26px 22px;display:flex;flex-direction:column;">
+        <div style="display:flex;">
+          <!-- rotated rail -->
+          <div style="width:30px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px;">
+            <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;letter-spacing:.18em;color:#8A8A93;">13:46</div>
+            <div class="railfill" style="width:1px;height:46px;background:#1E1E24;margin-top:12px;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#FF2D6F;margin-top:6px;"></div>
+            <div style="width:1px;height:18px;background:#1E1E24;"></div>
+            <div style="width:4px;height:4px;border-radius:50%;background:#3A3A42;"></div>
+            <div style="width:1px;height:46px;background:#1E1E24;"></div>
+            <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:.18em;color:#6A6A73;margin-top:12px;">16 OCT 2026</div>
+          </div>
+
+          <div style="flex:1;margin-left:16px;">
+            <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;">NEXT RUN</div>
+            <div style="font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1;margin-top:8px;">11:30<span style="font-size:15px;color:#FF2D6F;letter-spacing:.02em;"> PM</span></div>
+            <div style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:24px;color:#FF2D6F;margin-top:4px;">tonight</div>
+            <div style="height:1px;background:#1E1E24;margin-top:16px;"></div>
+            <div style="font-size:12px;color:#8A8A93;line-height:1.5;margin-top:12px;">Sleep mode &nbsp;&#8226;&nbsp; <span style="color:#F5F5F7;">in 7h 12m</span><br/>Internet off (kill switch) &#8226; Do Not Disturb on</div>
+            <div style="margin-top:10px;padding:6px 0;font-size:10.5px;color:#8A8A93;border-top:1px solid #14141A;">LAST RUN 2:47 PM &#8226; Flashlight off &middot; <span style="color:#E8B24A;">Data off needs internet control</span></div>
+            <div style="display:flex;gap:8px;margin-top:16px;">
+              <div style="width:34px;height:34px;border:1px solid #23232A;display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A8A93" stroke-width="2" stroke-linecap="round"><path d="M5 5h14M5 10h14M5 15h9M5 20h6"/></svg>
+              </div>
+              <div style="width:34px;height:34px;border:1px solid #23232A;display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A8A93" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2.2" fill="#0A0A0C"/><circle cx="15" cy="12" r="2.2" fill="#0A0A0C"/><circle cx="9" cy="17" r="2.2" fill="#0A0A0C"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:24px;">AUTOMATION</div>
+
+        <div style="display:flex;align-items:center;padding:12px 0;">
+          <div class="armed" style="width:3px;height:20px;background:#FF2D6F;"></div>
+          <div style="flex:1;margin-left:12px;">
+            <div style="font-size:14px;font-weight:700;">Schedules armed</div>
+            <div style="font-size:10.5px;color:#FF2D6F;">armed &#8226; schedules are live</div>
+          </div>
+          <div style="width:40px;height:23px;border-radius:12px;background:#FF2D6F;padding:3px;box-sizing:border-box;display:flex;justify-content:flex-end;"><div style="width:17px;height:17px;border-radius:50%;background:#fff;"></div></div>
+        </div>
+        <div style="height:1px;background:#1E1E24;"></div>
+
+        <div style="display:flex;align-items:center;padding:12px 0;">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#FF2D6F" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3.2 7.4-7 9-3.8-1.6-7-4.5-7-9V6z"/><path d="M9.5 12l2 2L15 9.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div style="flex:1;margin-left:12px;">
+            <div style="font-size:14px;font-weight:700;">Internet kill switch</div>
+            <div style="font-size:10.5px;color:#8A8A93;">cuts mobile data + Wi-Fi instantly, no root</div>
+          </div>
+          <div style="width:40px;height:23px;border-radius:12px;background:#23232A;padding:3px;box-sizing:border-box;display:flex;justify-content:flex-start;"><div style="width:17px;height:17px;border-radius:50%;background:#6E6E78;"></div></div>
+        </div>
+
+        <div style="margin-top:20px;display:flex;border-top:1px solid #14141A;border-bottom:1px solid #14141A;padding:12px 0;">
+          <div class="armed" style="width:3px;background:#FF2D6F;"></div>
+          <div style="margin-left:12px;font-size:11px;color:#FF2D6F;line-height:1.75;">
+            &#8226; Internet control &#8212; one tap makes internet-off work without root<br/>
+            &#8226; Battery: unrestricted &#8212; so the ROM can&#8217;t kill the alarm<br/>
+            <span style="color:#F5F5F7;font-weight:700;letter-spacing:.06em;">TAP TO FIX THE FIRST ONE</span>
+          </div>
+        </div>
+
+        <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:22px;">SCHEDULES</div>
+
+        <div class="row" style="display:flex;align-items:center;padding:13px 0;">
+          <div style="min-width:54px;font-size:15px;font-weight:700;color:#FF2D6F;">11:30<span style="font-size:9.5px;"> PM</span></div>
+          <div style="flex:1;margin-left:12px;">
+            <div style="font-size:14px;font-weight:700;">Sleep mode</div>
+            <div style="font-size:11px;color:#8A8A93;margin-top:3px;">Daily &#8226; Internet off (kill switch) &#8226; Do Not Disturb on</div>
+            <div style="font-size:10px;letter-spacing:.04em;color:#6A6A73;margin-top:3px;">NEXT RUN&nbsp; TONIGHT, 11:30 PM</div>
+          </div>
+          <div style="width:40px;height:23px;border-radius:12px;background:#FF2D6F;padding:3px;box-sizing:border-box;display:flex;justify-content:flex-end;"><div style="width:17px;height:17px;border-radius:50%;background:#fff;"></div></div>
+        </div>
+        <div style="height:1px;background:#1E1E24;"></div>
+
+        <div class="row" style="display:flex;align-items:center;padding:13px 0;">
+          <div style="min-width:54px;font-size:15px;font-weight:700;color:#FF2D6F;">7:00<span style="font-size:9.5px;"> AM</span></div>
+          <div style="flex:1;margin-left:12px;">
+            <div style="font-size:14px;font-weight:700;">Good morning</div>
+            <div style="font-size:11px;color:#8A8A93;margin-top:3px;">Daily &#8226; Internet on &#8226; Do Not Disturb off &#8226; Ringer: normal</div>
+            <div style="font-size:10px;letter-spacing:.04em;color:#6A6A73;margin-top:3px;">NEXT RUN&nbsp; SAT, 7:00 AM</div>
+          </div>
+          <div style="width:40px;height:23px;border-radius:12px;background:#FF2D6F;padding:3px;box-sizing:border-box;display:flex;justify-content:flex-end;"><div style="width:17px;height:17px;border-radius:50%;background:#fff;"></div></div>
+        </div>
+        <div style="height:1px;background:#1E1E24;"></div>
+
+        <div style="display:flex;align-items:center;padding:13px 0;opacity:.55;">
+          <div style="min-width:54px;font-size:15px;font-weight:700;color:#6A6A73;">10:15<span style="font-size:9.5px;"> PM</span></div>
+          <div style="flex:1;margin-left:12px;">
+            <div style="font-size:14px;font-weight:700;color:#8A8A93;">Night dimmer</div>
+            <div style="font-size:11px;color:#8A8A93;margin-top:3px;">Daily &#8226; Brightness 12%</div>
+          </div>
+          <div style="width:40px;height:23px;border-radius:12px;background:#23232A;padding:3px;box-sizing:border-box;display:flex;justify-content:flex-start;"><div style="width:17px;height:17px;border-radius:50%;background:#6E6E78;"></div></div>
+        </div>
+        <div style="height:1px;background:#1E1E24;"></div>
+
+        <div style="display:flex;justify-content:flex-end;margin-top:22px;">
+          <div class="fab" style="width:54px;height:54px;background:#FF2D6F;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ BUILDER ============ -->
+    <div class="card d2" style="width:336px;border:1px solid #1E1E24;background:#0A0A0C;">
+      <div style="padding:24px 22px;">
+        <div style="display:flex;align-items:center;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F5F5F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5 7.5 12l7 7"/></svg>
+          <div style="margin-left:12px;font-size:20px;font-weight:700;letter-spacing:-.02em;">New schedule</div>
+        </div>
+
+        <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:22px;">NAME</div>
+        <div style="margin-top:7px;border:1px solid #26262E;background:#0A0A0D;padding:13px;font-size:14px;">Sleep mode<span style="color:#FF2D6F;">|</span></div>
+
+        <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:22px;">THE STACK</div>
+        <div style="font-size:10.5px;color:#6A6A73;margin-top:6px;">tap a step to set its level &#8226; long-press to move it up &#8226; &#10005; removes</div>
+
+        <div style="margin-top:12px;">
+          <div style="display:flex;align-items:center;padding:11px 0;">
+            <div style="width:24px;height:24px;border-radius:50%;background:#FF2D6F;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">1</div>
+            <div style="flex:1;margin-left:12px;">
+              <div style="font-size:13.5px;font-weight:700;">Internet off (kill switch)</div>
+              <div style="font-size:10px;letter-spacing:.06em;color:#6A6A73;margin-top:2px;">kill switch</div>
+            </div>
+            <svg width="15" height="15" viewBox="0 0 24 24" stroke="#6A6A73" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+
+          <div style="display:flex;align-items:center;padding:11px 0;">
+            <div style="width:24px;height:24px;border-radius:50%;background:#FF2D6F;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">2</div>
+            <div style="flex:1;margin-left:12px;">
+              <div style="font-size:13.5px;font-weight:700;">Wi-Fi off</div>
+              <div style="font-size:10px;letter-spacing:.06em;color:#6A6A73;margin-top:2px;">root / Shizuku</div>
+            </div>
+            <svg width="15" height="15" viewBox="0 0 24 24" stroke="#6A6A73" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+
+          <div style="display:flex;align-items:center;padding:11px 0;">
+            <div style="width:24px;height:24px;border-radius:50%;background:#FF2D6F;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">3</div>
+            <div style="flex:1;margin-left:12px;">
+              <div style="font-size:13.5px;font-weight:700;">Do Not Disturb on</div>
+              <div style="font-size:10px;letter-spacing:.06em;color:#6A6A73;margin-top:2px;">in-app</div>
+            </div>
+            <svg width="15" height="15" viewBox="0 0 24 24" stroke="#6A6A73" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+
+          <div style="display:flex;align-items:center;padding:11px 0;">
+            <div style="width:24px;height:24px;border-radius:50%;background:#FF2D6F;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">4</div>
+            <div style="flex:1;margin-left:12px;">
+              <div style="font-size:13.5px;font-weight:700;">Brightness 12%</div>
+              <div style="font-size:10px;letter-spacing:.06em;color:#6A6A73;margin-top:2px;">in-app</div>
+            </div>
+            <svg width="15" height="15" viewBox="0 0 24 24" stroke="#6A6A73" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+        </div>
+
+        <div style="font-size:9.5px;letter-spacing:.18em;color:#FF2D6F;font-weight:700;margin-top:18px;">INTERNET &#8212; NO ROOT NEEDED</div>
+        <div style="display:flex;gap:7px;margin-top:9px;">
+          <div style="padding:9px 14px;background:#FF2D6F;color:#0A0A0C;font-size:12.5px;font-weight:600;">Internet off (kill switch)</div>
+          <div style="padding:9px 14px;border:1px solid #26262E;color:#8A8A93;font-size:12.5px;">Internet on</div>
+        </div>
+
+        <div style="font-size:9.5px;letter-spacing:.18em;color:#6A6A73;font-weight:700;margin-top:16px;">RADIOS &#8212; ROOT / SHIZUKU</div>
+        <div style="display:flex;gap:7px;margin-top:9px;overflow:hidden;">
+          <div style="padding:9px 14px;border:1px solid #26262E;color:#8A8A93;font-size:12.5px;">Wi-Fi off</div>
+          <div style="padding:9px 14px;border:1px solid #26262E;color:#8A8A93;font-size:12.5px;">Airplane on</div>
+          <div style="padding:9px 14px;border:1px solid #26262E;color:#8A8A93;font-size:12.5px;">Bluetooth off</div>
+        </div>
+
+        <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:20px;">TIME</div>
+        <div style="display:flex;align-items:center;padding:10px 0;">
+          <div style="font-size:34px;font-weight:700;letter-spacing:-.04em;">11:30</div>
+          <div style="font-size:14px;font-weight:700;color:#FF2D6F;letter-spacing:.1em;margin-left:8px;">PM</div>
+          <div style="flex:1;text-align:right;font-size:9.5px;letter-spacing:.14em;color:#6A6A73;font-weight:700;">TAP TO CHANGE</div>
+        </div>
+        <div style="display:flex;align-items:center;margin-top:10px;">
+          <div style="padding:10px 16px;border:1px solid #26262E;color:#8A8A93;font-size:13px;">AM</div>
+          <div style="padding:10px 16px;background:#FF2D6F;color:#0A0A0C;font-size:13px;font-weight:700;margin-left:8px;">PM</div>
+          <div style="flex:1;"></div>
+          <div style="padding:10px 16px;border:1px solid #26262E;color:#8A8A93;font-size:13px;letter-spacing:.04em;">24H</div>
+        </div>
+        <div style="height:1px;background:#1E1E24;margin-top:14px;"></div>
+
+        <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:18px;">REPEAT</div>
+        <div style="display:flex;gap:7px;margin-top:9px;">
+          <div style="padding:9px 14px;border:1px solid #26262E;color:#8A8A93;font-size:12.5px;">Once</div>
+          <div style="padding:9px 14px;background:#FF2D6F;color:#0A0A0C;font-size:12.5px;font-weight:600;">Daily</div>
+          <div style="padding:9px 14px;border:1px solid #26262E;color:#8A8A93;font-size:12.5px;">Weekdays</div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:26px;">
+          <div style="flex:1;height:52px;border:1px solid #2A2A33;display:flex;align-items:center;justify-content:center;font-size:11.5px;letter-spacing:.12em;font-weight:700;">TEST NOW</div>
+          <div style="flex:1.4;height:52px;background:#FF2D6F;display:flex;align-items:center;justify-content:center;font-size:11.5px;letter-spacing:.12em;font-weight:700;">SAVE SCHEDULE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SETUP + HISTORY ============ -->
+    <div class="card d3" style="width:336px;display:flex;flex-direction:column;gap:20px;">
+      <div style="border:1px solid #1E1E24;background:#0A0A0C;">
+        <div style="padding:24px 22px;">
+          <div style="display:flex;align-items:center;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F5F5F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5 7.5 12l7 7"/></svg>
+            <div style="margin-left:12px;">
+              <div style="font-size:9.5px;letter-spacing:.2em;color:#6A6A73;font-weight:700;">SCHEDULE.U</div>
+              <div style="font-size:20px;font-weight:700;letter-spacing:-.02em;">Setup</div>
+            </div>
+          </div>
+
+          <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:22px;">THE ENGINE</div>
+          <div style="font-size:12px;color:#FF2D6F;line-height:1.5;margin-top:8px;">Engine: kill switch &#8212; internet actions work everywhere; other radios open their settings screen. Install Shizuku + wireless debugging for full automatic control without root.</div>
+          <div style="height:1px;background:#1E1E24;margin-top:14px;"></div>
+
+          <div style="font-size:10px;letter-spacing:.22em;color:#6A6A73;font-weight:700;margin-top:18px;">PERMISSIONS</div>
+          <div style="display:flex;align-items:center;padding:14px 0;">
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:700;">Modify system settings</div><div style="font-size:10.5px;color:#8A8A93;margin-top:2px;">brightness and auto-rotate</div></div>
+            <div style="font-size:10.5px;letter-spacing:.12em;font-weight:700;color:#FF2D6F;">&#10003; DONE</div>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+          <div style="display:flex;align-items:center;padding:14px 0;">
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:700;">Kill switch permission</div><div style="font-size:10.5px;color:#8A8A93;margin-top:2px;">cuts mobile data + Wi-Fi, no root</div></div>
+            <div style="font-size:10.5px;letter-spacing:.12em;font-weight:700;">OPEN</div>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+          <div style="display:flex;align-items:center;padding:14px 0;">
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:700;">Always-on kill switch</div><div style="font-size:10.5px;color:#8A8A93;margin-top:2px;">survives reboots and pre-unlock</div></div>
+            <div style="font-size:10.5px;letter-spacing:.12em;font-weight:700;color:#FF2D6F;">&#10003; DONE</div>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+          <div style="display:flex;align-items:center;padding:14px 0;">
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:700;">Time format</div><div style="font-size:10.5px;color:#8A8A93;margin-top:2px;">AM/PM or 24-hour, every screen</div></div>
+            <div style="font-size:10.5px;letter-spacing:.12em;font-weight:700;color:#FF2D6F;">12-HOUR</div>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+          <div class="row" style="display:flex;align-items:center;padding:14px 0;">
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:700;">Self-test</div><div style="font-size:10.5px;color:#8A8A93;margin-top:2px;">checks every permission, blinks the flashlight</div></div>
+            <div style="font-size:10.5px;letter-spacing:.12em;font-weight:700;color:#FF2D6F;">RUN</div>
+          </div>
+          <div style="height:1px;background:#1E1E24;"></div>
+          <div style="display:flex;align-items:center;padding:14px 0;">
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:700;">Shizuku (no root needed)</div><div style="font-size:10.5px;color:#8A8A93;margin-top:2px;">same real switching through ADB</div></div>
+            <div style="font-size:10.5px;letter-spacing:.12em;font-weight:700;color:#8A8A93;">NOT RUNNING</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="border:1px solid #1E1E24;background:#0A0A0C;">
+        <div style="padding:24px 22px;">
+          <div style="font-size:9.5px;letter-spacing:.2em;color:#6A6A73;font-weight:700;">SCHEDULE.U</div>
+          <div style="font-size:20px;font-weight:700;letter-spacing:-.02em;margin-top:2px;">History</div>
+
+          <div style="display:flex;align-items:center;padding:13px 0;margin-top:10px;">
+            <div style="font-size:10px;color:#FF2D6F;">&#9679;</div>
+            <div style="flex:1;margin-left:8px;font-size:13.5px;font-weight:700;">Sleep mode</div>
+            <div style="font-size:10px;letter-spacing:.06em;color:#6A6A73;">11:30 PM</div>
+          </div>
+          <div style="font-size:11.5px;color:#8A8A93;line-height:1.6;padding-bottom:12px;">&#8226; kill switch on &#8212; mobile data and Wi-Fi are offline<br/>&#8226; Do Not Disturb on</div>
+          <div style="height:1px;background:#1E1E24;"></div>
+
+          <div class="row" style="display:flex;align-items:center;padding:13px 0;">
+            <div style="font-size:10px;color:#FF2D6F;">&#9679;</div>
+            <div style="flex:1;margin-left:8px;font-size:13.5px;font-weight:700;">Good morning</div>
+            <div style="font-size:10px;letter-spacing:.06em;color:#6A6A73;">7:00 AM</div>
+          </div>
+          <div style="font-size:11.5px;color:#8A8A93;line-height:1.6;padding-bottom:12px;">&#8226; Internet restored<br/>&#8226; Do Not Disturb off<br/>&#8226; Ringer normal</div>
+          <div style="height:1px;background:#1E1E24;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;color:#6A6A73;font-size:12px;margin-top:36px;">Black, hairlines, rotated clock rail, script accent &#8212; AM/PM with a one-tap 24H switch. In the app: rows rise in, the clock cross-fades, chips spring back, every surface ripples.</p>
+</div>
+</body>
+</html>

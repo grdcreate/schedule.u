@@ -1,0 +1,20 @@
+# signing material - a private key must never be committed
+keystore.jks
+*.jks
+*.keystore
+
+# build output and intermediates (build.sh recreates all of this)
+build/
+ControlScheduler.apk
+ControlScheduler.apk.idsig
+libs/classes/
+libs/classes2/
+
+# downloaded toolchain: JDK + Android SDK, ~600 MB (fetch-toolchain.sh re-downloads it)
+.cache/
+
+# noise
+*.class
+*.log
+.DS_Store
+Thumbs.db

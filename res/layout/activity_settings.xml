@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical"
+    android:paddingLeft="22dp"
+    android:paddingRight="22dp"
+    android:paddingTop="34dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/icon_btn"
+            android:contentDescription="Back"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.2"
+                android:text="SCHEDULE.U"
+                android:textColor="@color/text3"
+                android:textSize="9.5sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:text="Setup"
+                android:textColor="@color/text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="36dp">
+
+            <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="The engine" />
+
+            <TextView
+                android:id="@+id/engine_capability"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:text="Probing\u2026"
+                android:textColor="@color/text2"
+                android:textSize="12sp" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="14dp" android:background="@color/stroke" />
+
+            <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Permissions" />
+
+            <LinearLayout android:id="@+id/row_write" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Modify system settings" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="brightness and auto-rotate" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_write" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_dnd" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Do Not Disturb access" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="silence notifications on schedule" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_dnd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_alarm" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alarms &amp; reminders" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="exact timing for schedules" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_alarm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_battery" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Battery optimisation" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="let the scheduler run overnight" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_battery" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_overlay" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Display over other apps" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="lets Wi-Fi / data screens open by themselves" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_overlay" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_vpn" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kill switch permission" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="cuts mobile data + Wi-Fi, no root" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_vpn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_always_vpn" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Always-on kill switch" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="survives reboots and pre-unlock" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_always_vpn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="OPEN" android:textColor="@color/text" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_service" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Background engine" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="keeps alarms and the kill switch alive" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_service" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="ON" android:textColor="@color/accent" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Engine access" />
+
+            <LinearLayout android:id="@+id/row_root" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Root access" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="real Wi-Fi / data / airplane switching (tap to re-check)" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_root" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="\u2026" android:textColor="@color/text2" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <LinearLayout android:id="@+id/row_shizuku" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Shizuku (no root needed)" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="same real switching through ADB" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_shizuku" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="\u2026" android:textColor="@color/text2" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Display" />
+
+            <LinearLayout android:id="@+id/row_timefmt" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Time format" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="AM/PM or 24-hour, in every screen and notification" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_timefmt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="12-HOUR" android:textColor="@color/accent" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Diagnostics" />
+
+            <LinearLayout android:id="@+id/row_selftest" style="@style/SettingsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Self-test" android:textColor="@color/text" android:textSize="13.5sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="checks every permission and blinks the flashlight" android:textColor="@color/text2" android:textSize="10.5sp" />
+                </LinearLayout>
+                <TextView android:id="@+id/state_selftest" android:layout_width="wrap_content" android:layout_height="wrap_content" android:letterSpacing="0.12" android:text="RUN" android:textColor="@color/accent" android:textSize="10.5sp" android:textStyle="bold" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/stroke" />
+
+            <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="About" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:text="schedule.u 2.4\n\nFIXED: schedules you made yourself never fired. New rows were saved without their database id, so the alarm fired into nothing. Schedules now arm correctly, the app re-arms every alarm each time you open it, and a run that was missed while the phone was off is caught up in the next 30 minutes.\n\nEvery run now reports itself: the home screen shows what last happened, and anything missing (notifications, Do Not Disturb access, modify-settings, internet control, battery) is listed there with a one-tap fix.\n\nSleep mode 11:30 PM and Good morning 7:00 AM stay ready on first launch. Times read as AM/PM; the 24H button switches the whole app to 24-hour.\n\nWi-Fi, mobile data, airplane mode, Bluetooth, hotspot, location and NFC switch for real with root or Shizuku. Without either, the built-in kill switch cuts everything on any phone. Flashlight, DND, ringer, volume, brightness and auto-rotate are always instant."
+                android:textColor="@color/text2"
+                android:textSize="11.5sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

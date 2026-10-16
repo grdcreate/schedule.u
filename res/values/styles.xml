@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppAnim" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/out_right</item>
+    </style>
+
+    <style name="AppTheme" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/AppAnim</item>
+        <item name="android:colorPrimary">@color/accent</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:textColorSecondary">@color/text2</item>
+        <item name="android:textColorHint">@color/text3</item>
+    </style>
+
+    <style name="AppTheme.Transparent" parent="AppTheme" />
+
+    <!-- small caps section label, like the reference artwork -->
+    <style name="Label">
+        <item name="android:textColor">@color/text3</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.22</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+    </style>
+
+    <style name="Display">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Script">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:background">@drawable/card</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="Input">
+        <item name="android:background">@drawable/input</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorHint">@color/text3</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="Chip">
+        <item name="android:background">@drawable/chip</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textSize">12.5sp</item>
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">14dp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:layout_marginRight">7dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="SettingsRow">
+        <item name="android:background">@drawable/row_tap</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+</resources>
